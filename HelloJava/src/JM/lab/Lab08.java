@@ -48,18 +48,18 @@ public class Lab08 {
 		
 		
 	//연습문제 4-4
-		
-		int j=0;
-		int k=1;
-		int l=0; 
-		
-		
-		for(j=1,true;i++,s=-s)
-		//System.out.println(j+(-k));
-		//		i=i+l
-		
-		if (l>=100)
-			break;
+//		
+//		int j=0;
+//		int k=1;
+//		int l=0; 
+//		
+//		
+//		for(j=1,true;i++,s=-s)
+//		//System.out.println(j+(-k));
+//		//		i=i+l
+//		
+//		if (l>=100)
+//			break;
 	}
 
 }
