@@ -1,6 +1,7 @@
 package JM.lab;
 
 import java.io.IOException;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class Lab07 {
@@ -10,28 +11,28 @@ public class Lab07 {
 		// 현재 연도가 400으로 나누어떨어지거나
 		// 현재 년도가 4로나누어 떨어지지만 100 안나누어떨어짐
 
-//		GregorianCalendar gc = new GregorianCalendar();
-//		System.out.println(gc.isLeapYear(2000));
-//
-//		String welcome = "확인할 윤년 년도를 입력하세요"; // 더깔끔
-//
-//		// int year = 4404;
-//		System.out.println(welcome); // 더깔끔
-//		Scanner sc = new Scanner(System.in);
-//		int year = sc.nextInt();
-//
-//		if (gc.isLeapYear(year))
-//			System.out.printf("%d는 윤년입니다 \n", year);
-//		else
-//			System.out.printf("%d는 윤년 아니다 \n", year);
-//
-//		// System.out.println((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0) ?
-//		// "윤" : "not윤");
-//
-//		if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
-//			System.out.println("윤");
-//		else
-//			System.out.println("not");
+		GregorianCalendar gc = new GregorianCalendar();
+	
+
+		String welcome = "확인할 윤년 년도를 입력하세요"; // 더깔끔
+
+		// int year = 4404;
+		System.out.println(welcome); // 더깔끔
+		Scanner sc = new Scanner(System.in);
+		int year = sc.nextInt();
+
+		if (gc.isLeapYear(year))
+			System.out.printf("%d는 윤년입니다 \n", year);
+		else
+			System.out.printf("%d는 윤년 아니다 \n", year);
+
+		// System.out.println((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0) ?
+		// "윤" : "not윤");
+
+		if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+			System.out.println("윤");
+		else
+			System.out.println("not");
 
 		// #24
 
@@ -207,13 +208,13 @@ public class Lab07 {
 		//lotto :657, lucky : 725 = 2개일치
 		//657    665   2개 ? 1개?
 		
-		int ran= (int)(Math.random()*1000);
-		int lotto = ran%((999-100)+1)+100;
-		System.out.println(lotto);
-		
-		
-		Scanner sc =new Scanner(System.in);
-		String lucky = sc.nextLine();
+//		int ran= (int)(Math.random()*1000);///////////
+//		int lotto = ran%((999-100)+1)+100;
+//		System.out.println(lotto);
+//		
+//		
+//		Scanner sc =new Scanner(System.in);
+//		String lucky = sc.nextLine();/////////////////
 		
 		
 //		char lucky1 = lucky.charAt(0);
@@ -233,22 +234,22 @@ public class Lab07 {
 //		if(lotto3 == lucky1 || lotto3 == lucky2 || lotto3 == lucky3)
 //			++match;
 		
-		String lotto4 = ""+lotto;
-		int size = lotto4.length();
-		
-		for(int i =0; i<size; ++i)
-			for(int j =0; j<size; ++j)
-			if (lucky.charAt(i) == lotto4.charAt(j))
-				++match;
-		String msg = "꽝 !!!!";
-		switch(match)
-		{
-		case 3: msg = "1등"; break; 
-		case 2: msg = "2등"; break;
-		case 1: msg = "3등"; break;
-		}
-		System.out.println(msg);
-		
+//		String lotto4 = ""+lotto;					/////////////
+//		int size = lotto4.length();
+//		
+//		for(int i =0; i<size; ++i)
+//			for(int j =0; j<size; ++j)
+//			if (lucky.charAt(i) == lotto4.charAt(j))
+//				++match;
+//		String msg = "꽝 !!!!";
+//		switch(match)
+//		{
+//		case 3: msg = "1등"; break; 
+//		case 2: msg = "2등"; break;
+//		case 1: msg = "3등"; break;
+//		}
+//		System.out.println(msg);						////////////
+//		
 
 //		System.out.printl3n("lotto:" + ran +" Lucky:"); //내가한거
 //		String chars = ran;

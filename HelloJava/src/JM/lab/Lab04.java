@@ -127,7 +127,7 @@ public class Lab04 {
 				tax = (int) (salary * 0.25);
 		} else if (isMarried == 1) {
 			if (salary < 6000)
-				tax = (int) (salary * 0.1);
+				tax = (int) (salary * 0.2);
 			else
 				tax = (int) (salary * 0.25);
 		}
