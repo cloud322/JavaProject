@@ -12,7 +12,7 @@ public class Lab07 {
 		// 현재 년도가 4로나누어 떨어지지만 100 안나누어떨어짐
 
 		GregorianCalendar gc = new GregorianCalendar();
-	
+		System.out.println(gc.isLeapYear(2000));
 
 		String welcome = "확인할 윤년 년도를 입력하세요"; // 더깔끔
 

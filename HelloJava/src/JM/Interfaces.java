@@ -12,6 +12,11 @@ public class Interfaces {
 		sjsrv.getAverage();
 		sjsrv.getGrd();
 		
+		//interface type변환	(upcasting/ downcasting)
+		//interface 의 참조변수로 구현한 class의 객체를 할당할수 잇음
+		
+		ISungJukService isjsrv = new SungJukServiceImpl();
+		
 		
 		//추상클래스 객체생성 가능???
 		//추상 method 포함한 class 를 의미 -객체화 불가불가!!!
@@ -26,8 +31,8 @@ public class Interfaces {
 
 interface ISungJukService
 {
-	int tot = 0;			//상수 초기화 필요필요!!!!!!!
-	double avg = 0;
+	int TOT = 0;			//상수 초기화 필요필요!!!!!!!
+	double AVG = 0;
 	
 	
 	abstract void getTotal();	 	//추상메서드
