@@ -48,6 +48,7 @@ public class Exceptions2 {
 		
 		//예외 던지가 -throws
 		MakeException me = new MakeException();
+		
 		try {
 		me.exception1();
 		me.exception2();									//exception 2 3 안넘어감
@@ -61,18 +62,7 @@ public class Exceptions2 {
 		{System.out.println("잘못된 Input");}
 	
 	
-	try {
-		me.exception1();
-		}catch (ArrayIndexOutOfBoundsException aioe)		//이래야 다됨
-		{System.out.println("잘못된배열");}
-		try {
-		me.exception2();
-		}catch (ArithmeticException ae)
-		{System.out.println("잘못된 수식");}
-		try {
-		me.exception3();
-		}catch (InputMismatchException ime)
-		{System.out.println("잘못된 Input");}
+	
 	
 	
 	//finally 블럭
@@ -90,10 +80,11 @@ public class Exceptions2 {
 	
 
 	}
+}
 
 
 class MakeException
-	{
+{
 	public void exception1() throws ArrayIndexOutOfBoundsException
 		{
 		int[] intArray = {1,2,3,4,5};
@@ -109,8 +100,8 @@ class MakeException
 		Scanner sc = new Scanner(System.in);
 		sc.nextInt();
 		}
-	}
-
-
 }
+
+
+
 
