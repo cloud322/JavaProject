@@ -1,6 +1,4 @@
-package project.v2;
-
-import project.v1.SungJukV0;
+package project.v3;
 
 public interface SungJukService {
 	// 성적 데이터 CRUD 처리 - 저장,조회,수정,삭제

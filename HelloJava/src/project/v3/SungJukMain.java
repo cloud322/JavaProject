@@ -1,8 +1,7 @@
-package project.v2;
+package project.v3;
 
 import java.util.Scanner;
 
-import project.v1.SungJukV0;
 
 public class SungJukMain {
 	
@@ -133,7 +132,14 @@ public class SungJukMain {
 	}
 
 	private static void exitSungJuk() {
- 		System.exit(0);
+ 		try
+ 		{
+ 			sjsrv.finalize();
+ 			System.out.println(SAYGOODBYE);
+ 		}
+ 		catch (Throwable e) {System.out.println(EXITERROR);}
+		
+		System.exit(0);
 	}
 
 }
