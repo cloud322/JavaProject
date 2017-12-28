@@ -15,8 +15,8 @@ import java.util.List;
 
 public class SungJukServiceImpl implements SungJukService {
 	
-	private String fpath1 = "c:/Java/data.txt";
-	private String fpath2 = "c:/Java/data.dat";
+	private String fpath1 = "c:/Java/Sungdata.txt";
+	private String fpath2 = "c:/Java/Sungdata.dat";
 
 	private final String FILENOTFOUND = "\n파일이 존재하지 않습니다!\n";
 	private final String FILEIOERROR = "\n기타 파일 입출력 오류입니다!\n";
@@ -28,8 +28,8 @@ public class SungJukServiceImpl implements SungJukService {
 	private List<SungJukV0> sjdb = null;
 
 	public SungJukServiceImpl() {
-		//sjdb = new ArrayList<>();
-		sjdb = initSungJukFromSerialized();
+		sjdb = initSungJukFromFile();
+		//sjdb = initSungJukFromSerialized();
 	}
 
 	@Override
@@ -163,7 +163,9 @@ public class SungJukServiceImpl implements SungJukService {
 	
 	public void finalize() throws Throwable
 	{
-		writeSungJukToSerialized();
+//		writeSungJukToSerialized();
+		writeSungJukToFile();
+		
 		super.finalize();
 	}
 	
