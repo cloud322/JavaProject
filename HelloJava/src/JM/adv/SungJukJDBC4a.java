@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import project.v1.SungJukV0;
-
-public class SungJukJDBC4 {
+public class SungJukJDBC4a {
 
 	public static void main(String[] args) {
 		// 성적처리 JDBC
@@ -28,9 +26,9 @@ public class SungJukJDBC4 {
 		ResultSet rs = null;
 				
 		//SQL관련 변수선언
-		String selectsql = "select sjno,name,kor,eng,mat,regdate from sungjuk order by sjno desc";
+		String selectsql = "select * from sungjuk order by sjno desc";
 		String insertsql = null;
-		String updatesql = "update sungjuk set name = ?, kor=?, eng=?, mat=? where sjno = ?";
+		String updatesql = "update sungjuk set name = ?, kor=?, eng=?, mat=?,tot=?,avrg=?,grd=? where sjno = ?";
 		String deletesql = null;
 		
 		try 
@@ -50,9 +48,12 @@ public class SungJukJDBC4 {
 			SungJukV02 sj = new SungJukV02();
 			sj.setSjno(rs.getString("sjno"));
 			sj.setName(rs.getString("name"));
-			sj.setKor(rs.getInt("Kor"));
-			sj.setEng(rs.getInt("Eng"));
-			sj.setMat(rs.getInt("Mat"));
+			sj.setKor(rs.getInt("kor"));
+			sj.setEng(rs.getInt("eng"));
+			sj.setMat(rs.getInt("mat"));
+			sj.setTot(rs.getInt("tot"));
+			sj.setAvg(rs.getDouble("avrg"));
+			sj.setGrd(rs.getString("grd"));
 			sj.setRegdate(rs.getString("regdate").substring(0,10));
 			sjlist.add(sj);
 		}
@@ -70,13 +71,31 @@ public class SungJukJDBC4 {
 		int eng = sc.nextInt();
 		int mat = sc.nextInt();
 		
+		//총점 평균 학점처리
+		int tot = kor + eng + mat;
+		double avrg = tot/3.0;
+		String grd = "F";
+			switch((int)avrg/10)
+			{
+			case 10 :
+			case 9 :  grd="A"; break;
+			case 8 :  grd="B"; break;
+			case 7 :  grd="C"; break;
+			case 6 :  grd="D"; break;
+			}
+		
 		
 		pstmt = conn.prepareStatement(updatesql);
 		pstmt.setString(1, name);
 		pstmt.setInt(2, kor);
 		pstmt.setInt(3, eng);
 		pstmt.setInt(4, mat);
-		pstmt.setInt(5, no);
+		pstmt.setInt(5, tot); 
+		pstmt.setDouble(6, avrg); 
+		pstmt.setString(7, grd);
+		pstmt.setInt(8, no);
+
+		
 		
 		int cnt =pstmt.executeUpdate();
 		System.out.println(cnt + "건의 데이터 수정 완료!");
@@ -85,7 +104,7 @@ public class SungJukJDBC4 {
 		
 		
 		
-	//성적 계산 ??????	
+	//성적 게산000000
 		
 		
 		
@@ -104,30 +123,7 @@ public class SungJukJDBC4 {
 }
 
 
-class SungJukV02 extends SungJukV0
-{
-	private String sjno;
-	private String regdate;
-	public String getSjno() {
-		return sjno;
-	}
-	public void setSjno(String sjno) {
-		this.sjno = sjno;
-	}
-	public String getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
-	}
-	
-	@Override
-	public String toString() {
-		String fmt = "SungJukV0 [sjno=%s, name=%s, kor=%d, eng=%d, mat=%d, tot=%d, avg=%.1f, grd=%s regdate=%s]";
-		return String.format(fmt, sjno, getName(), getKor(),getEng(),getMat(),getTot(),getAvg(),getGrd(), regdate);
-	}
-	
-}
+
 		
 		
 		
